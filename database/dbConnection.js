@@ -1,6 +1,3 @@
-// 
-
-
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -12,10 +9,7 @@ export const dbConnection = async () => {
       throw new Error("MONGO_URI is not defined in .env file");
     }
 
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGO_URI);
 
     console.log("Connected to database ✅");
   } catch (error) {
@@ -23,3 +17,4 @@ export const dbConnection = async () => {
     process.exit(1);
   }
 };
+
